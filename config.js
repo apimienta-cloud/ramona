@@ -8,8 +8,8 @@
 // de defaults.js, pero sin métricas, sin Pixel de Meta y sin login en el admin.
 
 window.LT_CONFIG = {
-  SUPABASE_URL: "https://TU-PROYECTO.supabase.co",
-  SUPABASE_ANON_KEY: "TU-ANON-KEY",
+  SUPABASE_URL: "https://dauudsrjjeuizedlnpez.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_T8FZ5U7ZzMvFbSQEOIiPNA_9eagJo29",
 
   // Opcional: Pixel de Meta de respaldo. Se usa SOLO si la base no responde (por ejemplo,
   // si Supabase pausó el proyecto), para no perder la medición de clics. Normalmente el
