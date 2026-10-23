@@ -39,6 +39,8 @@ Mientras `config.js` tenga `TU-PROYECTO`, la página pública funciona igual con
 - **Pixel de Meta:** ver abajo.
 - **Redes (opcional):** vacías por defecto; se agregan si hacen falta.
 - **Botones:** texto, URL, subtítulo y miniatura opcionales, visible sí/no, orden con ↑/↓.
+  Los botones cuyo link es de PedidosYa muestran automáticamente el logo de PedidosYa a la izquierda
+  (casillero "Mostrar logo de PedidosYa" en cada botón; si hay miniatura, manda la miniatura).
   Hay un tipo **Título de sección** (sin link) para agrupar por local: *Ramona Centro*,
   *Ramona Pocitos*, *Ramona Carrasco*. **Guardar cambios** publica; la página toma los cambios
   al recargar.

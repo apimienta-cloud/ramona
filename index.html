@@ -63,12 +63,18 @@
   }
   .bio:empty{display:none}
   .socials{
-    display:flex;gap:22px;margin-top:18px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px;
   }
   .socials:empty{display:none}
-  .socials a{color:var(--accent);display:flex;transition:transform .15s ease}
-  .socials a:hover{transform:scale(1.12)}
-  .socials svg{width:26px;height:26px;fill:currentColor}
+  .socials a{
+    color:var(--accent);flex:none;
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    transition:transform .15s ease,background .15s ease;
+  }
+  .socials a:hover{transform:scale(1.08);background:rgba(230,75,0,.10)}
+  .socials svg{width:30px;height:30px;display:block;flex:none;overflow:visible;fill:currentColor}
 
   .links{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:30px}
 
@@ -110,6 +116,7 @@
     position:absolute;left:8px;top:50%;transform:translateY(-50%);
     width:42px;height:42px;object-fit:cover;border-radius:50%;background:#fff;
   }
+  .link .thumb.logo{padding:9px;object-fit:contain;background:#fff}
   .link .kebab{
     position:absolute;right:8px;top:50%;transform:translateY(-50%);
     width:36px;height:36px;border-radius:50%;
@@ -209,6 +216,11 @@
       });
     }
 
+    // Los links de PedidosYa muestran su logo salvo que se desactive desde el panel (hide_logo).
+    function isPedidosYa(url){
+      try{ return /(^|.)pedidosya.com(.[a-z]{2})?$/i.test(new URL(url).hostname); }catch(e){ return false; }
+    }
+
     function render(cfg){
       PROFILE = cfg.profile || {};
       document.title = PROFILE.name || "Ramona";
@@ -263,6 +275,7 @@
 
         var html = "";
         if(l.thumb_url) html += '<img class="thumb" src="' + esc(l.thumb_url) + '" alt="">';
+        else if(isPedidosYa(l.url) && !l.hide_logo) html += '<img class="thumb logo" src="assets/pedidosya.png" alt="PedidosYa">';
         html += '<span class="label">' + esc(l.label);
         if(l.sublabel) html += '<span class="sub">' + esc(l.sublabel) + '</span>';
         html += '</span>';

@@ -415,7 +415,8 @@
               '<div class="full"><label>Miniatura (opcional)</label>' +
                 '<div class="mini-upload"><input type="file" accept="image/*" data-act="thumbfile">' +
                 '<input data-k="thumb_url" type="text" placeholder="URL de la miniatura" value="'+esc(l.thumb_url||"")+'"></div>' +
-              '</div>') +
+              '</div>' +
+              '<div class="full"><label class="chk"><input type="checkbox" data-k="logo" '+(l.hide_logo?"":"checked")+'> Mostrar logo de PedidosYa (solo si el link es de PedidosYa y no hay miniatura)</label></div>') +
             '<div class="full"><button class="btn danger sm" data-act="del">Borrar</button></div>' +
           '</div>';
 
@@ -426,6 +427,7 @@
           el.querySelector('[data-k="url"]').addEventListener("input", function(){ cfg.links[i].url = this.value; });
           el.querySelector('[data-k="sublabel"]').addEventListener("input", function(){ cfg.links[i].sublabel = this.value; });
           el.querySelector('[data-k="thumb_url"]').addEventListener("input", function(){ cfg.links[i].thumb_url = this.value; });
+          el.querySelector('[data-k="logo"]').addEventListener("change", function(){ cfg.links[i].hide_logo = !this.checked; });
           el.querySelector('[data-act="thumbfile"]').addEventListener("change", function(){
             if(this.files[0]) uploadImage(this.files[0], function(url){
               cfg.links[i].thumb_url = url; renderLinks();
